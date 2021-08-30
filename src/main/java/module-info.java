@@ -5,4 +5,5 @@ module BoxCalc {
     requires javafx.fxml;
 
     opens org.stilkuhni;
+    opens org.stilkuhni.ui;
 }
