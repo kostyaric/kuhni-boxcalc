@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<SplitPane dividerPositions="0.8" minHeight="500.0" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<SplitPane dividerPositions="0.8" minHeight="500.0" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <center>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="470.0" stroke="BLACK" strokeType="INSIDE" width="200.0" BorderPane.alignment="CENTER">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="470.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="200.0" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets right="50.0" />
                      </BorderPane.margin>
@@ -23,7 +23,7 @@
          <children>
             <VBox alignment="TOP_RIGHT" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <CheckBox mnemonicParsing="false" text="Опорный горизонт" />
+                  <CheckBox id="basicHorisont" mnemonicParsing="false" text="Опорный горизонт" />
                   <TextField promptText="Высота шкафа" />
                   <TextArea maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="200.0" minWidth="-Infinity" prefHeight="400.0" prefWidth="150.0" promptText="Расстояния до полок" VBox.vgrow="ALWAYS" />
                </children>
