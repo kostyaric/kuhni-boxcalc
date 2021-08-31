@@ -26,7 +26,8 @@ public class Controller implements Initializable {
         });
 
         horisontCheckBox.setOnAction(actionEvent -> {
-            System.out.println("CheckBox = " + horisontCheckBox.isSelected());
+            BoxImageBuilder boxImageBuilder = new BoxImageBuilder();
+            boxImageBuilder.setBottomHorisontType(horisontCheckBox.isSelected());
         });
 
     }

@@ -25,10 +25,10 @@ public class App extends Application {
         Parent content = FXMLLoader.load(getClass().getResource("/fxml/mainstyle.fxml"));
         Scene scene = new Scene(content);
 
-        BoxImageBuilder.imageGroup = (Group) scene.lookup("#imageGroup");
-
         stage.setScene(scene);
         stage.show();
+
+        BoxImageBuilder.imageGroup = (Group) scene.lookup("#imageGroup");
 
         /*Если привязывать контроллер программно, а не через fxml
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainstyle.fxml"));
