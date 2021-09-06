@@ -2,12 +2,10 @@ package org.stilkuhni.model.shelves;
 
 public class MiddleShelf extends Shelf {
 
-    public MiddleShelf(double topDistance, Shelf previousShelf) {
+    public MiddleShelf(double topDistance, double previousTop) {
         this.topDistance = topDistance;
-        this.neighbourDistance = topDistance - previousShelf.getTopDistance();
+        this.neighbourDistance = topDistance - previousTop;
     }
-
-
 
 
 }

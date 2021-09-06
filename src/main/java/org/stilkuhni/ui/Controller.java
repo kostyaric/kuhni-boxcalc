@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.stilkuhni.model.cupboards.CupBoard;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -37,6 +38,10 @@ public class Controller implements Initializable {
                     .map(dim -> Double.parseDouble(dim))
                     .sorted()
                     .collect(Collectors.toList());
+
+            CupBoard cupBoard = new CupBoard(height, shelvesDist, horisontCheckBox.isSelected());
+            cupBoard.draw();
+
         });
 
         horisontCheckBox.setOnAction(actionEvent -> {

@@ -6,4 +6,5 @@ public class TopShelf extends Shelf {
         this.topDistance = topDistance;
         this.neighbourDistance = topDistance;
     }
+
 }
