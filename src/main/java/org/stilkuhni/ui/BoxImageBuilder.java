@@ -3,6 +3,9 @@ package org.stilkuhni.ui;
 import javafx.scene.Group;
 import javafx.scene.shape.Rectangle;
 import org.stilkuhni.Constants;
+import org.stilkuhni.model.shelves.Shelf;
+
+import java.util.List;
 
 public class BoxImageBuilder {
     public static Group imageGroup;
@@ -32,6 +35,10 @@ public class BoxImageBuilder {
             bottomPanel.setX(box.getX());
             bottomPanel.setWidth(box.getWidth() - Constants.PANEL_WIDTH_PIXEL * 2);
         }
+
+    }
+
+    public static void drawShelves(List<Shelf> shelves) {
 
     }
 

@@ -40,7 +40,7 @@ public class Controller implements Initializable {
                     .collect(Collectors.toList());
 
             CupBoard cupBoard = new CupBoard(height, shelvesDist, horisontCheckBox.isSelected());
-            cupBoard.draw();
+            cupBoard.drawShelves();
 
         });
 

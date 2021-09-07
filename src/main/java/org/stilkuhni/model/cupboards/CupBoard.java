@@ -50,7 +50,7 @@ public class CupBoard {
 
     }
 
-    public void draw() {
+    public void drawShelves() {
 
     }
 
