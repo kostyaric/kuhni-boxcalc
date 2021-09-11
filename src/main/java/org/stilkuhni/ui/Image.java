@@ -1,6 +1,6 @@
 package org.stilkuhni.ui;
 
-public interface Draw {
+public interface Image {
 
     public void draw();
 

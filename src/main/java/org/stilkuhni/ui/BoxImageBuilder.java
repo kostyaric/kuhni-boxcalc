@@ -4,24 +4,29 @@ import javafx.scene.Group;
 import javafx.scene.shape.Rectangle;
 import org.stilkuhni.Constants;
 import org.stilkuhni.model.shelves.Shelf;
+import org.stilkuhni.ui.finders.ElementsFinder;
 
 import java.util.List;
 
 public class BoxImageBuilder {
     public static Group imageGroup;
+    private double realHeight = 1;
+    private double verticalScale = 1;
 
-    private Rectangle getRectangleElement(String rectangleID) {
+    public BoxImageBuilder() {
+    }
 
-        return (Rectangle) imageGroup.lookup("#" + rectangleID);
-
+    public BoxImageBuilder(double realHeight) {
+        this.realHeight = realHeight;
+        this.verticalScale = calcVerticalScale();
     }
 
     public void setBottomHorisontType(boolean bottomHorisontOuter) {
 
-        Rectangle box = getRectangleElement("boxShell");
-        Rectangle leftPanel = getRectangleElement("leftPanel");
-        Rectangle rightPanel = getRectangleElement("rightPanel");
-        Rectangle bottomPanel = getRectangleElement("bottomHorisont");
+        Rectangle box = ElementsFinder.<Rectangle>findElementByID("boxShell");
+        Rectangle leftPanel = ElementsFinder.<Rectangle>findElementByID("leftPanel");
+        Rectangle rightPanel = ElementsFinder.<Rectangle>findElementByID("rightPanel");
+        Rectangle bottomPanel = ElementsFinder.<Rectangle>findElementByID("bottomHorisont");
 
         if (bottomHorisontOuter) {
             leftPanel.setHeight(box.getHeight() - Constants.PANEL_WIDTH_PIXEL);
@@ -38,7 +43,17 @@ public class BoxImageBuilder {
 
     }
 
-    public static void drawShelves(List<Shelf> shelves) {
+    private double calcVerticalScale() {
+        double topY = ElementsFinder.<Rectangle>findElementByID("topHorisont").getBoundsInParent().getMinY();
+        double bottomY = ElementsFinder.<Rectangle>findElementByID("bottomHorisont").getBoundsInParent().getMaxY();
+        return (bottomY - topY) / realHeight;
+    }
+
+    public void drawShelves(List<Shelf> shelves) {
+
+        for (Shelf shelf : shelves) {
+            Image shelfImage = shelf.createImage();
+        }
 
     }
 

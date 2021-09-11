@@ -1,5 +1,8 @@
 package org.stilkuhni.model.shelves;
 
+import org.stilkuhni.ui.Image;
+import org.stilkuhni.ui.shelves.BottomShelfImage;
+
 public class BottomShelf extends MiddleShelf{
 
     private double bottomDistance;
@@ -13,4 +16,8 @@ public class BottomShelf extends MiddleShelf{
         return bottomDistance;
     }
 
+    @Override
+    public Image createImage() {
+        return new BottomShelfImage();
+    }
 }

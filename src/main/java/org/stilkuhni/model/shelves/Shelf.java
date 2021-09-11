@@ -1,5 +1,7 @@
 package org.stilkuhni.model.shelves;
 
+import org.stilkuhni.ui.Image;
+
 abstract public class Shelf {
 
     protected double topDistance;
@@ -12,4 +14,7 @@ abstract public class Shelf {
     public double getNeighbourDistance() {
         return neighbourDistance;
     }
+
+    abstract public Image createImage();
+
 }

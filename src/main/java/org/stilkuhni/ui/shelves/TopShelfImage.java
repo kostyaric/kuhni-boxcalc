@@ -1,8 +1,8 @@
 package org.stilkuhni.ui.shelves;
 
-import org.stilkuhni.ui.Draw;
+import org.stilkuhni.ui.Image;
 
-public class TopImage extends MiddleImage implements Draw {
+public class TopShelfImage extends MiddleShelfImage implements Image {
 
     private void drawTopExtLine () {
 

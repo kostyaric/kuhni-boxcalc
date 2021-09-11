@@ -1,9 +1,9 @@
 package org.stilkuhni.ui.shelves;
 
-import org.stilkuhni.ui.Draw;
+import org.stilkuhni.ui.Image;
 import org.stilkuhni.ui.primitiv.Dot;
 
-public class MiddleImage implements Draw {
+public class MiddleShelfImage implements Image {
 
     protected Dot baseDot;
     protected Dot topDot;

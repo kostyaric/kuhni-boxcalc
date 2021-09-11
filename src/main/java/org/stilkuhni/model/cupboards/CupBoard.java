@@ -21,6 +21,10 @@ public class CupBoard {
         this.shelves = createShelves(shelvesDistnce);
     }
 
+    public List<Shelf> getShelves() {
+        return shelves;
+    }
+
     private List<Shelf> createShelves(List<Double> shelvesDistnce) {
 
         List<Shelf> shelfList = new ArrayList<>();
@@ -47,10 +51,6 @@ public class CupBoard {
         }
 
         return shelfList;
-
-    }
-
-    public void drawShelves() {
 
     }
 
