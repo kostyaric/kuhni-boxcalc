@@ -5,6 +5,8 @@ import javafx.scene.shape.Rectangle;
 import org.stilkuhni.Constants;
 import org.stilkuhni.model.shelves.Shelf;
 import org.stilkuhni.ui.finders.ElementsFinder;
+import org.stilkuhni.ui.shelves.ShelfImage;
+import org.stilkuhni.ui.shelves.builders.ShelfImageBuilder;
 
 import java.util.List;
 
@@ -52,7 +54,9 @@ public class BoxImageBuilder {
     public void drawShelves(List<Shelf> shelves) {
 
         for (Shelf shelf : shelves) {
-            Image shelfImage = shelf.createImage();
+            ShelfImage shelfImage = shelf.createImage();
+            ShelfImageBuilder.buildShelfImage(shelf, shelfImage, verticalScale);
+            shelfImage.draw();
         }
 
     }

@@ -1,36 +1,14 @@
 package org.stilkuhni.ui.shelves;
 
 import org.stilkuhni.ui.Image;
-import org.stilkuhni.ui.primitiv.Dot;
 
-public class MiddleShelfImage implements Image {
+public class MiddleShelfImage extends ShelfImage implements Image {
 
-    protected Dot baseDot;
-    protected Dot topDot;
-    protected double realTopDistance;
-
-    protected void drawShelfBody() {
-
-    }
-
-    protected void drawBasicExtLine () {
-
-    }
-
-    protected void drawBasicDimentionLine() {
-
-    }
-
-    protected void drawBaseText() {
-
-    }
+    protected ShelfType shelfType = ShelfType.MIDDLE;
 
     @Override
     public void draw() {
-        drawShelfBody();
-        drawBasicExtLine();
-        drawBasicDimentionLine();
-        drawBaseText();
+        super.draw();
     }
 
 }

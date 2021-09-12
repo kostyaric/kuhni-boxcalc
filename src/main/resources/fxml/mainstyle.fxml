@@ -22,11 +22,7 @@
                         <Rectangle fx:id="bottomHorisont" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="10.0" layoutX="10.0" layoutY="460.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="180.0" />
                         <Rectangle fx:id="leftPanel" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="470.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="10.0" />
                         <Rectangle fx:id="rightPanel" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="470.0" layoutX="190.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="10.0" />
-                        <Group>
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="10.0" layoutX="10.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="180.0" />
-                              <Line endX="190.0" endY="105.0" startX="263.0" startY="105.0" />
-                           </children></Group>
+                        <Group fx:id="shelvesGroup" />
                      </children>
                   </Group>
                </center>
