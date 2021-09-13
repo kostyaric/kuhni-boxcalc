@@ -2,19 +2,19 @@ package org.stilkuhni.ui.primitiv;
 
 public class Dot {
 
-    private int coordinateX;
-    private int coordinateY;
+    private double coordinateX;
+    private double coordinateY;
 
-    public Dot(int coordinateX, int coordinateY) {
+    public Dot(double coordinateX, double coordinateY) {
         this.coordinateX = coordinateX;
         this.coordinateY = coordinateY;
     }
 
-    public int getX() {
+    public double getX() {
         return coordinateX;
     }
 
-    public int getY() {
+    public double getY() {
         return coordinateY;
     }
 }

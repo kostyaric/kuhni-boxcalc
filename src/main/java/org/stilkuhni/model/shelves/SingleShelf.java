@@ -3,23 +3,23 @@ package org.stilkuhni.model.shelves;
 import org.stilkuhni.ui.shelves.BottomShelfImage;
 import org.stilkuhni.ui.shelves.ShelfImage;
 
-public class BottomShelf extends MiddleShelf {
+public class SingleShelf extends BottomShelf {
 
-//    private static final ShelfType shelfType = ShelfType.BOTTOM;
-    protected double bottomDistance;
+    protected ShelfType shelfType = ShelfType.SINGLE;
 
-    public BottomShelf(double topDistance, double previousTop, double bottomDistance) {
-        super(topDistance, previousTop);
+    public SingleShelf(double topDistance, double previousTop, double bottomDistance) {
+        super(topDistance, previousTop, bottomDistance);
         this.bottomDistance = bottomDistance;
-        this.shelfType = ShelfType.BOTTOM;
     }
 
     public double getBottomDistance() {
         return bottomDistance;
     }
 
+/*
     @Override
     public ShelfImage createImage() {
         return new BottomShelfImage();
     }
+*/
 }

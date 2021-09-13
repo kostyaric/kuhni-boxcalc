@@ -1,8 +1,6 @@
 package org.stilkuhni.model.shelves;
 
-import org.stilkuhni.ui.Image;
 import org.stilkuhni.ui.shelves.ShelfImage;
-import org.stilkuhni.ui.shelves.ShelfType;
 
 abstract public class Shelf {
 
@@ -16,6 +14,10 @@ abstract public class Shelf {
 
     public double getNeighbourDistance() {
         return neighbourDistance;
+    }
+
+    public ShelfType getShelfType() {
+        return shelfType;
     }
 
     abstract public ShelfImage createImage();

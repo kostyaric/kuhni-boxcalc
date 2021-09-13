@@ -14,14 +14,14 @@ public class ShelfImage implements Image {
 
     protected Dot baseDot;
     protected Dot topDot;
-    protected double realTopDistance;
+    protected double realNeighbourDistance;
 
     public Dot getBaseDot() {
         return baseDot;
     }
 
-    public void setRealTopDistance(double realTopDistance) {
-        this.realTopDistance = realTopDistance;
+    public void setRealNeighbourDistance(double realNeighbourDistance) {
+        this.realNeighbourDistance = realNeighbourDistance;
     }
 
     public void setBaseDot(Dot baseDot) {
@@ -53,6 +53,8 @@ public class ShelfImage implements Image {
     }
 
     protected void drawBasicExtLine () {
+        drawExtLineFromDot(baseDot);
+/*
 
         Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
 
@@ -60,10 +62,22 @@ public class ShelfImage implements Image {
         extLine.setStrokeWidth(Constants.DIM_LINE_WIDTH_PIXEL);
 
         shelvesGroup.getChildren().add(extLine);
+*/
     }
 
     protected void drawBasicDimentionLine() {
 
+    }
+
+    protected void drawExtLineFromDot(Dot dot) {
+        Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
+        double x = dot.getX();
+        double y = dot.getY();
+
+        Line extLine = new Line(x, y, x + Constants.EXT_LINE_LENTH_PIXEL, y);
+        extLine.setStrokeWidth(Constants.DIM_LINE_WIDTH_PIXEL);
+
+        shelvesGroup.getChildren().add(extLine);
     }
 
     protected void drawBaseText() {
