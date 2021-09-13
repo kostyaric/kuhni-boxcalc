@@ -56,10 +56,6 @@ public class ShelfImage implements Image {
         drawExtLineFromDot(baseDot);
     }
 
-    protected void drawBasicDimentionLine() {
-
-    }
-
     protected void drawExtLineFromDot(Dot dot) {
         Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
         double x = dot.getX();
@@ -69,6 +65,20 @@ public class ShelfImage implements Image {
         extLine.setStrokeWidth(Constants.DIM_LINE_WIDTH_PIXEL);
 
         shelvesGroup.getChildren().add(extLine);
+    }
+
+    protected void drawBasicDimentionLine() {
+        drawDimLineFromDotsPaire(baseDot, topDot);
+    }
+
+    protected void drawDimLineFromDotsPaire(Dot startDot, Dot endDot) {
+        Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
+        double x = startDot.getX() + Constants.EXT_LINE_LENTH_PIXEL - Constants.DIM_LINE_OFFSET;
+
+        Line dimLine = new Line(x, startDot.getY(), x, endDot.getY());
+        dimLine.setStrokeWidth(Constants.DIM_LINE_WIDTH_PIXEL);
+
+        shelvesGroup.getChildren().add(dimLine);
     }
 
     protected void drawBaseText() {

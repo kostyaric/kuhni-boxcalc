@@ -31,7 +31,7 @@ public class BottomShelfImage extends ShelfImage implements Image {
     }
 
     protected void drawBottomDimentionLine () {
-
+        drawDimLineFromDotsPaire(bottomDot, baseDot);
     }
 
     @Override
