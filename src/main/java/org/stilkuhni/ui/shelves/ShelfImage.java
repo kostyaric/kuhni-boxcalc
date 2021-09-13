@@ -2,6 +2,7 @@ package org.stilkuhni.ui.shelves;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
@@ -78,7 +79,12 @@ public class ShelfImage implements Image {
         Line dimLine = new Line(x, startDot.getY(), x, endDot.getY());
         dimLine.setStrokeWidth(Constants.DIM_LINE_WIDTH_PIXEL);
 
+        Circle startNock = new Circle(x, startDot.getY(), Constants.DIM_NOCK_RADIUS);
+        Circle endNock = new Circle(x, endDot.getY(), Constants.DIM_NOCK_RADIUS);
+
         shelvesGroup.getChildren().add(dimLine);
+        shelvesGroup.getChildren().add(startNock);
+        shelvesGroup.getChildren().add(endNock);
     }
 
     protected void drawBaseText() {

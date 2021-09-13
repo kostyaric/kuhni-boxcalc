@@ -7,6 +7,7 @@ public class Constants {
     public static final int DIM_LINE_WIDTH_PIXEL = 1;
     public static final int DIM_LINE_OFFSET = 10;
     public static final int BASE_LINE_WIDTH_PIXEL = 2;
+    public static final int DIM_NOCK_RADIUS = 3;
 
     public static final double PANEL_WIDTH_MM = 18;
 }
