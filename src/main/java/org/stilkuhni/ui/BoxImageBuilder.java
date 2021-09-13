@@ -51,7 +51,7 @@ public class BoxImageBuilder {
         return (bottomY - topY) / realHeight;
     }
 
-    public void clearShelves() {
+    public static void clearShelves() {
         Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
         shelvesGroup.getChildren().clear();
     }

@@ -35,7 +35,12 @@
                   <CheckBox fx:id="horisontCheckBox" mnemonicParsing="false" text="Опорный горизонт" />
                   <TextField fx:id="boxHeight" promptText="Высота шкафа" />
                   <TextArea fx:id="distanceBetweenShelves" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="200.0" minWidth="-Infinity" prefHeight="400.0" prefWidth="150.0" promptText="Расстояния до полок через пробел" VBox.vgrow="ALWAYS" />
-                  <Button fx:id="drawButton" mnemonicParsing="false" text="Построить" />
+                  <HBox alignment="CENTER_RIGHT" spacing="5.0">
+                     <children>
+                        <Button fx:id="clearButton" mnemonicParsing="false" text="Очистить" />
+                        <Button fx:id="drawButton" alignment="CENTER_RIGHT" mnemonicParsing="false" text="Построить" />
+                     </children>
+                  </HBox>
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

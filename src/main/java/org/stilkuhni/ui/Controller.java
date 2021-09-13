@@ -19,6 +19,8 @@ public class Controller implements Initializable {
     @FXML
     private Button drawButton;
     @FXML
+    private Button clearButton;
+    @FXML
     private CheckBox horisontCheckBox;
     @FXML
     private TextField boxHeight;
@@ -45,6 +47,8 @@ public class Controller implements Initializable {
             boxImageBuilder.drawShelves(cupBoard.getShelves());
 
         });
+
+        clearButton.setOnAction(actionEvent -> BoxImageBuilder.clearShelves());
 
         horisontCheckBox.setOnAction(actionEvent -> {
             BoxImageBuilder boxImageBuilder = new BoxImageBuilder();
