@@ -31,16 +31,16 @@ public class BoxImageBuilder {
         Rectangle bottomPanel = ElementsFinder.<Rectangle>findElementByID("bottomHorisont");
 
         if (bottomHorisontOuter) {
-            leftPanel.setHeight(box.getHeight() - Constants.PANEL_WIDTH_PIXEL);
-            rightPanel.setHeight(box.getHeight() - Constants.PANEL_WIDTH_PIXEL);
-            bottomPanel.setX(box.getX() - Constants.PANEL_WIDTH_PIXEL);
+            leftPanel.setHeight(box.getHeight() - Constants.PANEL_WIDTH);
+            rightPanel.setHeight(box.getHeight() - Constants.PANEL_WIDTH);
+            bottomPanel.setX(box.getX() - Constants.PANEL_WIDTH);
             bottomPanel.setWidth(box.getWidth());
         }
         else {
             leftPanel.setHeight(box.getHeight());
             rightPanel.setHeight(box.getHeight());
             bottomPanel.setX(box.getX());
-            bottomPanel.setWidth(box.getWidth() - Constants.PANEL_WIDTH_PIXEL * 2);
+            bottomPanel.setWidth(box.getWidth() - Constants.PANEL_WIDTH * 2);
         }
 
     }

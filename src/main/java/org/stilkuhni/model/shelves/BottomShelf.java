@@ -5,7 +5,6 @@ import org.stilkuhni.ui.shelves.ShelfImage;
 
 public class BottomShelf extends MiddleShelf {
 
-//    private static final ShelfType shelfType = ShelfType.BOTTOM;
     protected double bottomDistance;
 
     public BottomShelf(double topDistance, double previousTop, double bottomDistance) {

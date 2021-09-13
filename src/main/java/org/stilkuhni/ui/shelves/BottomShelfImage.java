@@ -34,10 +34,16 @@ public class BottomShelfImage extends ShelfImage implements Image {
         drawDimLineFromDotsPaire(bottomDot, baseDot);
     }
 
+    protected void drawBottomText() {
+        drawTextFromDotPair(bottomDot, baseDot, realBottomDistance);
+    }
+
+
     @Override
     public void draw() {
         super.draw();
         drawBottomExtLine();
         drawBottomDimentionLine();
+        drawBottomText();
     }
 }

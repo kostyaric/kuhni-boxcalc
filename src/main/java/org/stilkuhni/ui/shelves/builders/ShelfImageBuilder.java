@@ -1,6 +1,7 @@
 package org.stilkuhni.ui.shelves.builders;
 
 import javafx.scene.shape.Rectangle;
+import org.stilkuhni.model.shelves.BottomShelf;
 import org.stilkuhni.model.shelves.Shelf;
 import org.stilkuhni.model.shelves.ShelfType;
 import org.stilkuhni.ui.finders.ElementsFinder;
@@ -17,6 +18,7 @@ public class ShelfImageBuilder {
         imageShelf.setTopDot(createTopDot(modelShelf, imageShelf, verticalScale));
         if (modelShelf.getShelfType() == ShelfType.BOTTOM) {
             ((BottomShelfImage) imageShelf).setBottomDot(createBottomDot());
+            ((BottomShelfImage) imageShelf).setRealBottomDistance(((BottomShelf) modelShelf).getBottomDistance());
         }
 
     }
