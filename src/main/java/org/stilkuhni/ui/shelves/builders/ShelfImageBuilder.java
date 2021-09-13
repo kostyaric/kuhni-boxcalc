@@ -16,7 +16,7 @@ public class ShelfImageBuilder {
         imageShelf.setRealNeighbourDistance(modelShelf.getNeighbourDistance());
         imageShelf.setBaseDot(createBaseDot(modelShelf, imageShelf, verticalScale));
         imageShelf.setTopDot(createTopDot(modelShelf, imageShelf, verticalScale));
-        if (modelShelf.getShelfType() == ShelfType.BOTTOM) {
+        if (modelShelf.getShelfType() == ShelfType.BOTTOM || modelShelf.getShelfType() == ShelfType.SINGLE) {
             ((BottomShelfImage) imageShelf).setBottomDot(createBottomDot());
             ((BottomShelfImage) imageShelf).setRealBottomDistance(((BottomShelf) modelShelf).getBottomDistance());
         }

@@ -1,10 +1,7 @@
 package org.stilkuhni.model.cupboards;
 
 import org.stilkuhni.Constants;
-import org.stilkuhni.model.shelves.BottomShelf;
-import org.stilkuhni.model.shelves.MiddleShelf;
-import org.stilkuhni.model.shelves.Shelf;
-import org.stilkuhni.model.shelves.TopShelf;
+import org.stilkuhni.model.shelves.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +32,17 @@ public class CupBoard {
 
             double topDistance = shelvesDistnce.get(i);
 
-            if (i == 0) {
-                shelfList.add(new TopShelf(topDistance));
-            }
-            else if (i == shelvesCount - 1) {
+            if (i == shelvesCount - 1) {
                 double bottomDistance = height - topDistance - (basicHorisont ? Constants.PANEL_WIDTH_MM : 0);
-                shelfList.add(new BottomShelf(topDistance, prevTopDistance, bottomDistance));
+                if (shelvesCount == 1) {
+                    shelfList.add(new SingleShelf(topDistance, prevTopDistance, bottomDistance));
+                }
+                else {
+                    shelfList.add(new BottomShelf(topDistance, prevTopDistance, bottomDistance));
+                }
+            }
+            else if (i == 0) {
+                shelfList.add(new TopShelf(topDistance));
             }
             else {
                 shelfList.add(new MiddleShelf(topDistance, prevTopDistance));
