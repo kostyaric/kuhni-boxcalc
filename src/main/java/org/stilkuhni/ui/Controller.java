@@ -33,6 +33,7 @@ public class Controller implements Initializable {
             Double height = Double.parseDouble(boxHeight.getCharacters().toString());
 
             List<Double> shelvesDist = distanceBetweenShelves.getParagraphs().stream()
+                    .filter(f -> !f.toString().isBlank())
                     .map(charSequence -> charSequence.toString())
                     .flatMap(dimRow -> Arrays.asList(dimRow.split(" ")).stream())
                     .map(dim -> Double.parseDouble(dim))

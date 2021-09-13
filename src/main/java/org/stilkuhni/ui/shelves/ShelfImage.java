@@ -1,13 +1,14 @@
 package org.stilkuhni.ui.shelves;
 
 import javafx.scene.Group;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeType;
 import org.stilkuhni.Constants;
-import org.stilkuhni.ui.BoxImageBuilder;
 import org.stilkuhni.ui.Image;
 import org.stilkuhni.ui.finders.ElementsFinder;
 import org.stilkuhni.ui.primitiv.Dot;
-import org.stilkuhni.ui.shelves.builders.ShelfImageBuilder;
 
 public class ShelfImage implements Image {
 
@@ -43,11 +44,22 @@ public class ShelfImage implements Image {
         double minY = baseDot.getY() - Constants.PANEL_WIDTH_PIXEL / 2;
 
         Rectangle shelf = new Rectangle(minX, minY, topPanel.getWidth(), Constants.PANEL_WIDTH_PIXEL);
+        shelf.setFill(Color.WHITE);
+        shelf.setStroke(Color.BLACK);
+        shelf.setStrokeWidth(Constants.BASE_LINE_WIDTH_PIXEL);
+        shelf.setStrokeType(StrokeType.INSIDE);
+
         shelvesGroup.getChildren().add(shelf);
     }
 
     protected void drawBasicExtLine () {
 
+        Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
+
+        Line extLine = new Line(baseDot.getX(), baseDot.getY(), baseDot.getX() + Constants.EXT_LINE_LENTH_PIXEL, baseDot.getY());
+        extLine.setStrokeWidth(Constants.DIM_LINE_WIDTH_PIXEL);
+
+        shelvesGroup.getChildren().add(extLine);
     }
 
     protected void drawBasicDimentionLine() {
