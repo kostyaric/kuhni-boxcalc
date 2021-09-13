@@ -31,21 +31,7 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         drawButton.setOnAction(actionEvent -> {
-
-            Double height = Double.parseDouble(boxHeight.getCharacters().toString());
-
-            List<Double> shelvesDist = distanceBetweenShelves.getParagraphs().stream()
-                    .filter(f -> !f.toString().isBlank())
-                    .map(charSequence -> charSequence.toString())
-                    .flatMap(dimRow -> Arrays.asList(dimRow.split(" ")).stream())
-                    .map(dim -> Double.parseDouble(dim))
-                    .sorted()
-                    .collect(Collectors.toList());
-
-            CupBoard cupBoard = new CupBoard(height, shelvesDist, horisontCheckBox.isSelected());
-            BoxImageBuilder boxImageBuilder = new BoxImageBuilder(height);
-            boxImageBuilder.drawShelves(cupBoard.getShelves());
-
+            buildShelves();
         });
 
         clearButton.setOnAction(actionEvent -> BoxImageBuilder.clearShelves());
@@ -53,7 +39,30 @@ public class Controller implements Initializable {
         horisontCheckBox.setOnAction(actionEvent -> {
             BoxImageBuilder boxImageBuilder = new BoxImageBuilder();
             boxImageBuilder.setBottomHorisontType(horisontCheckBox.isSelected());
+            buildShelves();
         });
 
+    }
+
+    private void buildShelves() {
+
+        List<Double> shelvesDist = distanceBetweenShelves.getParagraphs().stream()
+                .filter(f -> !f.toString().isBlank())
+                .map(charSequence -> charSequence.toString())
+                .flatMap(dimRow -> Arrays.asList(dimRow.split(" ")).stream())
+                .map(dim -> Double.parseDouble(dim))
+                .sorted()
+                .collect(Collectors.toList());
+
+        String textHeight = boxHeight.getCharacters().toString();
+        if (!textHeight.isBlank()) {
+            Double height = Double.parseDouble(textHeight);
+            CupBoard cupBoard = new CupBoard(height, shelvesDist, horisontCheckBox.isSelected());
+            BoxImageBuilder boxImageBuilder = new BoxImageBuilder(height);
+            boxImageBuilder.drawShelves(cupBoard.getShelves());
+        }
+        else {
+            BoxImageBuilder.clearShelves();
+        }
     }
 }
