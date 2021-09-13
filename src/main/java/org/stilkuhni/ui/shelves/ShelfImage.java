@@ -54,15 +54,6 @@ public class ShelfImage implements Image {
 
     protected void drawBasicExtLine () {
         drawExtLineFromDot(baseDot);
-/*
-
-        Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
-
-        Line extLine = new Line(baseDot.getX(), baseDot.getY(), baseDot.getX() + Constants.EXT_LINE_LENTH_PIXEL, baseDot.getY());
-        extLine.setStrokeWidth(Constants.DIM_LINE_WIDTH_PIXEL);
-
-        shelvesGroup.getChildren().add(extLine);
-*/
     }
 
     protected void drawBasicDimentionLine() {

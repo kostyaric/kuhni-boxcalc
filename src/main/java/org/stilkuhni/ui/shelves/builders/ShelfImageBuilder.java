@@ -5,26 +5,19 @@ import org.stilkuhni.model.shelves.Shelf;
 import org.stilkuhni.model.shelves.ShelfType;
 import org.stilkuhni.ui.finders.ElementsFinder;
 import org.stilkuhni.ui.primitiv.Dot;
+import org.stilkuhni.ui.shelves.BottomShelfImage;
 import org.stilkuhni.ui.shelves.ShelfImage;
 
 public class ShelfImageBuilder {
 
     public static void buildShelfImage(Shelf modelShelf, ShelfImage imageShelf, double verticalScale) {
 
-/*
-        Rectangle topPanel = ElementsFinder.<Rectangle>findElementByID("topHorisont");
-        double neighbourDist = modelShelf.getNeighbourDistance();
-
-        double topDistancePixel = modelShelf.getTopDistance() * verticalScale;
-        double topY = topPanel.getBoundsInParent().getMinY();
-
-        double baseDotY = topDistancePixel + topY;
-        double baseDotX = topPanel.getBoundsInParent().getMaxX();
-*/
-
         imageShelf.setRealNeighbourDistance(modelShelf.getNeighbourDistance());
         imageShelf.setBaseDot(createBaseDot(modelShelf, imageShelf, verticalScale));
         imageShelf.setTopDot(createTopDot(modelShelf, imageShelf, verticalScale));
+        if (modelShelf.getShelfType() == ShelfType.BOTTOM) {
+            ((BottomShelfImage) imageShelf).setBottomDot(createBottomDot());
+        }
 
     }
 
@@ -62,4 +55,11 @@ public class ShelfImageBuilder {
 
     }
 
+    public static Dot createBottomDot() {
+        Rectangle rightPanel = ElementsFinder.<Rectangle>findElementByID("rightPanel");
+        double bottomDotX = rightPanel.getBoundsInParent().getMinX();
+        double bottomDotY = rightPanel.getBoundsInParent().getMaxY();
+
+        return new Dot(bottomDotX, bottomDotY);
+    }
 }
