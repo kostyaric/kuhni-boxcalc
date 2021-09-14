@@ -29,7 +29,7 @@ public class App extends Application {
         stage.show();
 
         BoxImageBuilder.imageGroup = (Group) scene.lookup("#imageGroup");
-
+        BoxImageBuilder.rebuildBoxBody(false);
         /*Если привязывать контроллер программно, а не через fxml
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainstyle.fxml"));
         loader.setController(new Controller());
