@@ -114,6 +114,12 @@ public class ShelfImage implements Image {
         dimText.setTextAlignment(TextAlignment.CENTER);
         dimText.setTextOrigin(VPos.CENTER);
         dimText.setFont(Font.font(Constants.TEXT_HEIGHT));
+        if (Constants.TEXT_BOLD) {
+            dimText.setStyle("-fx-font-weight: bold");
+        }
+        else {
+            dimText.setStyle("-fx-font-weight: regular");
+        }
         dimText.setLayoutX(Constants.TEXT_DIM_LINE_OFFSET * Constants.TEXT_HEIGHT);
 
         shelvesGroup.getChildren().add(dimText);

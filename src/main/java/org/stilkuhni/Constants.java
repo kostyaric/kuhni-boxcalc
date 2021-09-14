@@ -12,6 +12,7 @@ public class Constants {
     public static final int TEXT_HEIGHT = 32;
     public static final double TEXT_DIM_LINE_OFFSET = -2.2;
     public static final int TEXT_WRAPPING_WIDTH = 100;
+    public static final boolean TEXT_BOLD = true;
 
     public static final double PANEL_WIDTH_MM = 18;
 }
