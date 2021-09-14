@@ -24,29 +24,7 @@ public class BoxImageBuilder {
     }
 
     public void setBottomHorisontType(boolean bottomHorisontOuter) {
-
         rebuildBoxBody(bottomHorisontOuter);
-
-/*
-        Rectangle box = ElementsFinder.<Rectangle>findElementByID("boxShell");
-        Rectangle leftPanel = ElementsFinder.<Rectangle>findElementByID("leftPanel");
-        Rectangle rightPanel = ElementsFinder.<Rectangle>findElementByID("rightPanel");
-        Rectangle bottomPanel = ElementsFinder.<Rectangle>findElementByID("bottomHorisont");
-
-        if (bottomHorisontOuter) {
-            leftPanel.setHeight(box.getHeight() - Constants.PANEL_WIDTH);
-            rightPanel.setHeight(box.getHeight() - Constants.PANEL_WIDTH);
-            bottomPanel.setX(box.getX() - Constants.PANEL_WIDTH);
-            bottomPanel.setWidth(box.getWidth());
-        }
-        else {
-            leftPanel.setHeight(box.getHeight());
-            rightPanel.setHeight(box.getHeight());
-            bottomPanel.setX(box.getX());
-            bottomPanel.setWidth(box.getWidth() - Constants.PANEL_WIDTH * 2);
-        }
-*/
-
     }
 
     private double calcVerticalScale() {
