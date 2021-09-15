@@ -26,9 +26,8 @@ public class BoxImageBuilder {
     }
 
     public static double calcVerticalScale(double realHeight) {
-        double topY = ElementsFinder.<Rectangle>findElementByID("topHorisont").getBoundsInParent().getMinY();
-        double bottomY = ElementsFinder.<Rectangle>findElementByID("bottomHorisont").getBoundsInParent().getMaxY();
-        return (bottomY - topY) / realHeight;
+        Rectangle leftPanel = ElementsFinder.<Rectangle>findElementByID("leftPanel");
+        return (leftPanel.getBoundsInParent().getMaxY() - leftPanel.getBoundsInParent().getMinY()) / realHeight;
     }
 
 
