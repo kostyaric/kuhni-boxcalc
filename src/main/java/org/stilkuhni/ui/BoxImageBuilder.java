@@ -2,6 +2,7 @@ package org.stilkuhni.ui;
 
 import javafx.scene.Group;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import org.stilkuhni.Constants;
 import org.stilkuhni.model.shelves.Shelf;
 import org.stilkuhni.ui.finders.ElementsFinder;
@@ -76,7 +77,6 @@ public class BoxImageBuilder {
 
     }
 
-
     public static void clearShelves() {
         Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
         shelvesGroup.getChildren().clear();
@@ -94,4 +94,20 @@ public class BoxImageBuilder {
 
     }
 
+    public static void clearTitle() {
+        Text title = ElementsFinder.<Text>findElementByID("itemTitle");
+        title.setText("");
+    }
+
+    public static void feelTitle(String itemNumber, String itemHeight) {
+
+        String number = itemNumber.trim();
+        String height = itemHeight.trim();
+
+        clearTitle();
+        if (!number.isBlank() && !height.isBlank()) {
+            Text title = ElementsFinder.<Text>findElementByID("itemTitle");
+            title.setText("Пр. " + number + " H = " + height);
+        }
+    }
 }

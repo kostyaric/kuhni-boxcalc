@@ -25,6 +25,8 @@ public class Controller implements Initializable {
     @FXML
     private TextField boxHeight;
     @FXML
+    private TextField itemNumber;
+    @FXML
     private TextArea distanceBetweenShelves;
 
     @Override
@@ -32,9 +34,13 @@ public class Controller implements Initializable {
 
         drawButton.setOnAction(actionEvent -> {
             buildShelves();
+            BoxImageBuilder.feelTitle(itemNumber.getCharacters().toString(), boxHeight.getCharacters().toString());
         });
 
-        clearButton.setOnAction(actionEvent -> BoxImageBuilder.clearShelves());
+        clearButton.setOnAction(actionEvent -> {
+            BoxImageBuilder.clearShelves();
+            BoxImageBuilder.clearTitle();
+        });
 
         horisontCheckBox.setOnAction(actionEvent -> {
             BoxImageBuilder boxImageBuilder = new BoxImageBuilder();

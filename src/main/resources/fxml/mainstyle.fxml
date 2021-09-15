@@ -5,6 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
 <SplitPane dividerPositions="0.8" minHeight="500.0" minWidth="-Infinity" prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.stilkuhni.ui.Controller">
   <items>
@@ -18,12 +19,24 @@
                      </BorderPane.margin>
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="780.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="500.0" x="50.0" />
-                        <Rectangle fx:id="boxShell" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="200.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="200.0" />
-                        <Rectangle fx:id="topHorisont" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="10.0" layoutX="210.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="180.0" />
-                        <Rectangle fx:id="bottomHorisont" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="10.0" layoutX="210.0" layoutY="680.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="180.0" />
-                        <Rectangle fx:id="leftPanel" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="200.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="10.0" />
-                        <Rectangle fx:id="rightPanel" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="390.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="10.0" />
-                        <Group fx:id="shelvesGroup" />
+                        <VBox layoutX="200.0" layoutY="60.0" spacing="5.0">
+                           <children>
+                              <Text fx:id="itemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Пр. 1 H = 2000">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font></Text>
+                              <Group>
+                                 <children>
+                                    <Rectangle fx:id="boxShell" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="200.0" />
+                                    <Rectangle fx:id="topHorisont" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="10.0" layoutX="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="180.0" />
+                                    <Rectangle fx:id="bottomHorisont" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="10.0" layoutX="10.0" layoutY="590.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="180.0" />
+                                    <Rectangle fx:id="leftPanel" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="10.0" />
+                                    <Rectangle fx:id="rightPanel" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="190.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="10.0" />
+                                    <Group fx:id="shelvesGroup" />
+                                 </children>
+                              </Group>
+                           </children>
+                        </VBox>
                      </children>
                   </Group>
                </center>
@@ -33,8 +46,19 @@
          <children>
             <VBox alignment="TOP_RIGHT" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <CheckBox fx:id="horisontCheckBox" mnemonicParsing="false" text="Опорный горизонт" />
-                  <TextField fx:id="boxHeight" promptText="Высота шкафа" />
+                  <CheckBox fx:id="horisontCheckBox" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Опорный горизонт" />
+                  <HBox alignment="CENTER_RIGHT" spacing="5.0">
+                     <children>
+                        <Label text="Номер предмета:" />
+                        <TextField fx:id="itemNumber" prefHeight="25.0" prefWidth="50.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" spacing="20.0">
+                     <children>
+                        <Label text="Высота шкафа:" />
+                        <TextField fx:id="boxHeight" prefWidth="50.0" />
+                     </children>
+                  </HBox>
                   <TextArea fx:id="distanceBetweenShelves" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="200.0" minWidth="-Infinity" prefHeight="400.0" prefWidth="150.0" promptText="Расстояния до полок через пробел" VBox.vgrow="ALWAYS" />
                   <HBox alignment="CENTER_RIGHT" spacing="5.0">
                      <children>

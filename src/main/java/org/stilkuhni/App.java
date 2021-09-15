@@ -11,7 +11,6 @@ import org.stilkuhni.ui.Controller;
 
 public class App extends Application {
 
-    public static final String TITLE = "Расчет расстояния между полками";
 
     public static void main(String[] args) {
         Application.launch(args);
@@ -20,7 +19,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        stage.setTitle(TITLE);
+        stage.setTitle(Constants.TITLE);
 
         Parent content = FXMLLoader.load(getClass().getResource("/fxml/mainstyle.fxml"));
         Scene scene = new Scene(content);
@@ -29,7 +28,9 @@ public class App extends Application {
         stage.show();
 
         BoxImageBuilder.imageGroup = (Group) scene.lookup("#imageGroup");
+        BoxImageBuilder.clearTitle();
         BoxImageBuilder.rebuildBoxBody(false);
+
         /*Если привязывать контроллер программно, а не через fxml
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainstyle.fxml"));
         loader.setController(new Controller());

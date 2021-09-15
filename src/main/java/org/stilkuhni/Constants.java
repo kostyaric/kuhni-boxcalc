@@ -1,8 +1,11 @@
 package org.stilkuhni;
 
 public class Constants {
+    public static final String TITLE = "Расчет расстояния между полками";
+
     public static final int PANEL_WIDTH = 20;
     public static final int BASE_LINE_WIDTH = 4;
+    public static final int MINIMUM_DIST_BETWEEN_SELVES = 60;
 
     public static final int EXT_LINE_LENTH = 90;
     public static final int DIM_LINE_WIDTH = 2;
