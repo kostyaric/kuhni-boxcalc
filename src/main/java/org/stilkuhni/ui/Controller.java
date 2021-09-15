@@ -65,7 +65,7 @@ public class Controller implements Initializable {
             Double height = Double.parseDouble(textHeight);
             CupBoard cupBoard = new CupBoard(height, shelvesDist, horisontCheckBox.isSelected());
             BoxImageBuilder boxImageBuilder = new BoxImageBuilder(height);
-            boxImageBuilder.drawShelves(cupBoard.getShelves());
+            boxImageBuilder.drawShelves(cupBoard);
         }
         else {
             BoxImageBuilder.clearShelves();

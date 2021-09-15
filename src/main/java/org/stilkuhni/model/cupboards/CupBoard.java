@@ -11,6 +11,7 @@ public class CupBoard {
     private double height;
     private List<Shelf> shelves;
     private boolean basicHorisont;
+    private List<Double> dimentionChain = new ArrayList<>();
 
     public CupBoard(double height, List<Double> shelvesDistnce, boolean basicHorisont) {
         this.height = height;
@@ -22,6 +23,10 @@ public class CupBoard {
         return shelves;
     }
 
+    public List<Double> getDimentionChain() {
+        return dimentionChain;
+    }
+
     private List<Shelf> createShelves(List<Double> shelvesDistnce) {
 
         List<Shelf> shelfList = new ArrayList<>();
@@ -31,6 +36,7 @@ public class CupBoard {
         for (int i = 0; i < shelvesCount; i++) {
 
             double topDistance = shelvesDistnce.get(i);
+            dimentionChain.add(topDistance - prevTopDistance);
 
             if (i == shelvesCount - 1) {
                 double bottomDistance = height - topDistance - (basicHorisont ? Constants.PANEL_WIDTH_MM : 0);
@@ -40,6 +46,7 @@ public class CupBoard {
                 else {
                     shelfList.add(new BottomShelf(topDistance, prevTopDistance, bottomDistance));
                 }
+                dimentionChain.add(bottomDistance);
             }
             else if (i == 0) {
                 shelfList.add(new TopShelf(topDistance));

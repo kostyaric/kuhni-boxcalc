@@ -4,12 +4,9 @@ import javafx.scene.Group;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import org.stilkuhni.Constants;
-import org.stilkuhni.model.shelves.Shelf;
+import org.stilkuhni.model.cupboards.CupBoard;
 import org.stilkuhni.ui.finders.ElementsFinder;
-import org.stilkuhni.ui.shelves.ShelfImage;
 import org.stilkuhni.ui.shelves.builders.ShelfImageBuilder;
-
-import java.util.List;
 
 public class BoxImageBuilder {
     public static Group imageGroup;
@@ -21,14 +18,14 @@ public class BoxImageBuilder {
 
     public BoxImageBuilder(double realHeight) {
         this.realHeight = realHeight;
-        this.verticalScale = calcVerticalScale();
+        this.verticalScale = calcVerticalScale(realHeight);
     }
 
     public void setBottomHorisontType(boolean bottomHorisontOuter) {
         rebuildBoxBody(bottomHorisontOuter);
     }
 
-    private double calcVerticalScale() {
+    public static double calcVerticalScale(double realHeight) {
         double topY = ElementsFinder.<Rectangle>findElementByID("topHorisont").getBoundsInParent().getMinY();
         double bottomY = ElementsFinder.<Rectangle>findElementByID("bottomHorisont").getBoundsInParent().getMaxY();
         return (bottomY - topY) / realHeight;
@@ -52,7 +49,7 @@ public class BoxImageBuilder {
         topPanel.setWidth(box.getWidth() - Constants.PANEL_WIDTH * 2);
 
         bottomPanel.setStrokeWidth(Constants.BASE_LINE_WIDTH);
-        bottomPanel.setLayoutY(box.getLayoutY() + box.getHeight() - Constants.PANEL_WIDTH);
+        bottomPanel.setLayoutY(boxLayoutY + box.getHeight() - Constants.PANEL_WIDTH);
         bottomPanel.setHeight(Constants.PANEL_WIDTH);
 
         leftPanel.setStrokeWidth(Constants.BASE_LINE_WIDTH);
@@ -82,16 +79,9 @@ public class BoxImageBuilder {
         shelvesGroup.getChildren().clear();
     }
 
-    public void drawShelves(List<Shelf> shelves) {
-
+    public void drawShelves(CupBoard cupBoard) {
         clearShelves();
-
-        for (Shelf shelf : shelves) {
-            ShelfImage shelfImage = shelf.createImage();
-            ShelfImageBuilder.buildShelfImage(shelf, shelfImage, verticalScale);
-            shelfImage.draw();
-        }
-
+        ShelfImageBuilder.buidShelvesImages(cupBoard.getShelves(), cupBoard.getDimentionChain(), verticalScale);
     }
 
     public static void clearTitle() {

@@ -19,7 +19,7 @@
                      </BorderPane.margin>
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="780.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="500.0" x="50.0" />
-                        <VBox layoutX="200.0" layoutY="60.0" spacing="5.0">
+                        <VBox layoutX="200.0" layoutY="50.0" spacing="5.0">
                            <children>
                               <Text fx:id="itemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Пр. 1 H = 2000">
                                  <font>
