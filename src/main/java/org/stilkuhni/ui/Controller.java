@@ -2,11 +2,13 @@ package org.stilkuhni.ui;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import org.stilkuhni.model.cupboards.CupBoard;
+import org.stilkuhni.ui.finders.ElementsFinder;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -27,6 +29,8 @@ public class Controller implements Initializable {
     @FXML
     private TextField itemNumber;
     @FXML
+    private TextField cornerEval;
+    @FXML
     private TextArea distanceBetweenShelves;
 
     @Override
@@ -45,7 +49,10 @@ public class Controller implements Initializable {
         horisontCheckBox.setOnAction(actionEvent -> {
             BoxImageBuilder boxImageBuilder = new BoxImageBuilder();
             boxImageBuilder.setBottomHorisontType(horisontCheckBox.isSelected());
-            buildShelves();
+            Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
+            if (shelvesGroup.getChildren().size() > 0) {
+                buildShelves();
+            }
         });
 
     }
