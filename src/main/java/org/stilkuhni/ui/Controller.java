@@ -73,6 +73,7 @@ public class Controller implements Initializable {
             CupBoard cupBoard = new CupBoard(height, shelvesDist, horisontCheckBox.isSelected());
             BoxImageBuilder boxImageBuilder = new BoxImageBuilder(height);
             boxImageBuilder.drawShelves(cupBoard);
+            BoxImageBuilder.drawCorners(cornerEval.getCharacters().toString());
         }
         else {
             BoxImageBuilder.clearShelves();

@@ -1,5 +1,6 @@
 package org.stilkuhni.ui;
 
+import com.fathzer.soft.javaluator.DoubleEvaluator;
 import javafx.scene.Group;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -99,4 +100,11 @@ public class BoxImageBuilder {
             title.setText("Пр. " + number + " H = " + height);
         }
     }
+
+    public static void drawCorners(String formula) {
+        DoubleEvaluator doubleEvaluator = new DoubleEvaluator();
+        Double cornerDimention = doubleEvaluator.evaluate(formula);
+        System.out.println(cornerDimention);
+    }
+
 }
