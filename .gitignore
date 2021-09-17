@@ -3,4 +3,4 @@
 /out/*
 *.iml
 dependency-reduced-pom.xml
-/*.MF
+/**/*.MF
