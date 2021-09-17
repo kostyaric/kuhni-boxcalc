@@ -6,7 +6,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import org.stilkuhni.Constants;
 import org.stilkuhni.model.cupboards.CupBoard;
+import org.stilkuhni.ui.corners.CornerImage;
 import org.stilkuhni.ui.finders.ElementsFinder;
+import org.stilkuhni.ui.primitiv.Dot;
 import org.stilkuhni.ui.shelves.builders.ShelfImageBuilder;
 
 public class BoxImageBuilder {
@@ -102,9 +104,29 @@ public class BoxImageBuilder {
     }
 
     public static void drawCorners(String formula) {
+
+        if (formula.isBlank()) {
+            return;
+        }
+
         DoubleEvaluator doubleEvaluator = new DoubleEvaluator();
         Double cornerDimention = doubleEvaluator.evaluate(formula);
-        System.out.println(cornerDimention);
+
+        Rectangle bottomPanel = ElementsFinder.<Rectangle>findElementByID("bottomHorisont");
+        Rectangle leftPanel = ElementsFinder.<Rectangle>findElementByID("leftPanel");
+        Rectangle rightPanel = ElementsFinder.<Rectangle>findElementByID("rightPanel");
+
+        double y = bottomPanel.getBoundsInParent().getMinY() - Constants.CORNER_FROM_BOTTOM;
+        double leftX = leftPanel.getBoundsInParent().getMaxX() + Constants.CORNER_FROM_SIDE_PANEL;
+        double rightX = rightPanel.getBoundsInParent().getMinX() - Constants.CORNER_FROM_SIDE_PANEL;
+
+        double lineLenth = Constants.CORNER_LENTH;
+
+        CornerImage leftCorner = new CornerImage(new Dot(leftX, y), lineLenth, -lineLenth);
+        CornerImage rightCorner = new CornerImage(new Dot(rightX, y), -lineLenth, -lineLenth);
+
+        leftCorner.draw();
+        rightCorner.draw();
     }
 
 }

@@ -18,5 +18,10 @@ public class Constants {
     public static final int TEXT_WRAPPING_WIDTH = 110;
     public static final boolean TEXT_BOLD = true;
 
+    public static final double CORNER_LENTH = 20;
+    public static final int CORNER_LINE_WIDTH = 6;
+    public static final double CORNER_FROM_BOTTOM = 40;
+    public static final double CORNER_FROM_SIDE_PANEL = 10;
+
     public static final double PANEL_WIDTH_MM = 18;
 }

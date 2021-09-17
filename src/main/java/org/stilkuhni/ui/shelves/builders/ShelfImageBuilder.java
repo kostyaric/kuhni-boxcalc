@@ -1,5 +1,7 @@
 package org.stilkuhni.ui.shelves.builders;
 
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
 import org.stilkuhni.Constants;
 import org.stilkuhni.model.shelves.BottomShelf;
@@ -112,5 +114,10 @@ public class ShelfImageBuilder {
         double bottomDotY = rightPanel.getBoundsInParent().getMaxY();
 
         return new Dot(bottomDotX, bottomDotY);
+    }
+
+    public static void addElementToImage(Node node) {
+        Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
+        shelvesGroup.getChildren().add(node);
     }
 }
