@@ -11,26 +11,30 @@ import org.stilkuhni.ui.finders.ElementsFinder;
 import org.stilkuhni.ui.primitiv.Dot;
 import org.stilkuhni.ui.shelves.builders.ShelfImageBuilder;
 
+import java.util.List;
+
 public class BoxImageBuilder {
     public static Group imageGroup;
     private double realHeight = 1;
     private double verticalScale = 1;
+    private boolean supportedHorisont;
 
     public BoxImageBuilder() {
     }
 
-    public BoxImageBuilder(double realHeight) {
+    public BoxImageBuilder(double realHeight, boolean supportedHorisont) {
         this.realHeight = realHeight;
-        this.verticalScale = calcVerticalScale(realHeight);
+        this.supportedHorisont = supportedHorisont;
+        this.verticalScale = calcVerticalScale(realHeight, supportedHorisont);
     }
 
-    public void setBottomHorisontType(boolean bottomHorisontOuter) {
+    public static void setBottomHorisontType(boolean bottomHorisontOuter) {
         rebuildBoxBody(bottomHorisontOuter);
     }
 
-    public static double calcVerticalScale(double realHeight) {
+    private double calcVerticalScale(double realHeight, boolean supportedHorisont) {
         Rectangle leftPanel = ElementsFinder.<Rectangle>findElementByID("leftPanel");
-        return (leftPanel.getBoundsInParent().getMaxY() - leftPanel.getBoundsInParent().getMinY()) / realHeight;
+        return (leftPanel.getBoundsInParent().getMaxY() - leftPanel.getBoundsInParent().getMinY()) / (realHeight - (supportedHorisont ? Constants.PANEL_WIDTH_MM : 0));
     }
 
 
@@ -103,7 +107,7 @@ public class BoxImageBuilder {
         }
     }
 
-    public static void drawCorners(String formula) {
+    public void drawCorners(String formula, CupBoard cupBoard) {
 
         if (formula.isBlank()) {
             return;
@@ -116,9 +120,16 @@ public class BoxImageBuilder {
         Rectangle leftPanel = ElementsFinder.<Rectangle>findElementByID("leftPanel");
         Rectangle rightPanel = ElementsFinder.<Rectangle>findElementByID("rightPanel");
 
-        double y = bottomPanel.getBoundsInParent().getMinY() - Constants.CORNER_FROM_BOTTOM;
-        double leftX = leftPanel.getBoundsInParent().getMaxX() + Constants.CORNER_FROM_SIDE_PANEL;
-        double rightX = rightPanel.getBoundsInParent().getMinX() - Constants.CORNER_FROM_SIDE_PANEL;
+        List<Double> imageChain = ShelfImageBuilder.createImageDimentionChain(cupBoard.getDimentionChain(), verticalScale);
+        double imageTopOffset = Constants.CORNER_TOP_OFFSET_MM * verticalScale;
+        double y = leftPanel.getBoundsInParent().getMaxY() - imageChain.get(imageChain.size() - 1) + imageTopOffset;
+        double imageBottomOffset = bottomPanel.getBoundsInParent().getMinY() - y;
+        if (imageBottomOffset < Constants.CORNER_MIN_BOTTOM_OFFSET) {
+            y = bottomPanel.getBoundsInParent().getMinY() - Constants.CORNER_MIN_BOTTOM_OFFSET;
+        }
+
+        double leftX = leftPanel.getBoundsInParent().getMaxX() + Constants.CORNER_SIDE_PANEL_OFFSET;
+        double rightX = rightPanel.getBoundsInParent().getMinX() - Constants.CORNER_SIDE_PANEL_OFFSET;
 
         double lineLenth = Constants.CORNER_LENTH;
 

@@ -45,7 +45,7 @@ public class ShelfImageBuilder {
 
     }
 
-    private static List<Double> createImageDimentionChain(List<Double> realChain, double scale) {
+    public static List<Double> createImageDimentionChain(List<Double> realChain, double scale) {
         List<Double> imageChain = new ArrayList<>();
         double minDistance = Constants.MINIMUM_DIST_BETWEEN_SHELVES;
         double unchangeDistance = Constants.UNCHANGEABLE_DIST_BETWEEN_SHELVES;

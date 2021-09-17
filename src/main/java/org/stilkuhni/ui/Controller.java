@@ -47,8 +47,7 @@ public class Controller implements Initializable {
         });
 
         horisontCheckBox.setOnAction(actionEvent -> {
-            BoxImageBuilder boxImageBuilder = new BoxImageBuilder();
-            boxImageBuilder.setBottomHorisontType(horisontCheckBox.isSelected());
+            BoxImageBuilder.setBottomHorisontType(horisontCheckBox.isSelected());
             Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
             if (shelvesGroup.getChildren().size() > 0) {
                 buildShelves();
@@ -59,6 +58,9 @@ public class Controller implements Initializable {
 
     private void buildShelves() {
 
+        String textHeight = boxHeight.getCharacters().toString();
+        boolean supportedHorisont = horisontCheckBox.isSelected();
+
         List<Double> shelvesDist = distanceBetweenShelves.getParagraphs().stream()
                 .filter(f -> !f.toString().isBlank())
                 .map(charSequence -> charSequence.toString())
@@ -67,13 +69,12 @@ public class Controller implements Initializable {
                 .sorted()
                 .collect(Collectors.toList());
 
-        String textHeight = boxHeight.getCharacters().toString();
         if (!textHeight.isBlank()) {
             Double height = Double.parseDouble(textHeight);
-            CupBoard cupBoard = new CupBoard(height, shelvesDist, horisontCheckBox.isSelected());
-            BoxImageBuilder boxImageBuilder = new BoxImageBuilder(height);
+            CupBoard cupBoard = new CupBoard(height, shelvesDist, supportedHorisont);
+            BoxImageBuilder boxImageBuilder = new BoxImageBuilder(height, supportedHorisont);
             boxImageBuilder.drawShelves(cupBoard);
-            BoxImageBuilder.drawCorners(cornerEval.getCharacters().toString());
+            boxImageBuilder.drawCorners(cornerEval.getCharacters().toString(), cupBoard);
         }
         else {
             BoxImageBuilder.clearShelves();

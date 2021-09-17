@@ -4,6 +4,7 @@ public class Constants {
     public static final String TITLE = "Расчет расстояния между полками";
 
     public static final int PANEL_WIDTH = 20;
+    public static final double PANEL_WIDTH_MM = 18;
     public static final int BASE_LINE_WIDTH = 4;
     public static final double MINIMUM_DIST_BETWEEN_SHELVES = 60;
     public static final double UNCHANGEABLE_DIST_BETWEEN_SHELVES = 80;
@@ -20,8 +21,8 @@ public class Constants {
 
     public static final double CORNER_LENTH = 20;
     public static final int CORNER_LINE_WIDTH = 6;
-    public static final double CORNER_FROM_BOTTOM = 40;
-    public static final double CORNER_FROM_SIDE_PANEL = 10;
+    public static final double CORNER_MIN_BOTTOM_OFFSET = 10;
+    public static final double CORNER_SIDE_PANEL_OFFSET = 10;
+    public static final double CORNER_TOP_OFFSET_MM = 595;
 
-    public static final double PANEL_WIDTH_MM = 18;
 }
