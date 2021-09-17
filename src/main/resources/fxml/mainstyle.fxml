@@ -60,7 +60,7 @@
                      </children>
                   </HBox>
                   <TextArea fx:id="distanceBetweenShelves" maxHeight="300.0" maxWidth="-Infinity" minHeight="100.0" minWidth="-Infinity" prefHeight="200.0" prefWidth="150.0" promptText="Расстояния до полок от верха через пробел или Enter" VBox.vgrow="ALWAYS" />
-                  <TextField fx:id="cornerEval" promptText="Расчет уголков" />
+                  <TextArea fx:id="cornerEval" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="150.0" promptText="Расчет уголков" wrapText="true" />
                   <HBox alignment="CENTER_RIGHT" spacing="5.0">
                      <children>
                         <Button fx:id="clearButton" mnemonicParsing="false" text="Очистить" />

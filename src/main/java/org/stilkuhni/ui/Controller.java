@@ -29,7 +29,7 @@ public class Controller implements Initializable {
     @FXML
     private TextField itemNumber;
     @FXML
-    private TextField cornerEval;
+    private TextArea cornerEval;
     @FXML
     private TextArea distanceBetweenShelves;
 
@@ -69,12 +69,18 @@ public class Controller implements Initializable {
                 .sorted()
                 .collect(Collectors.toList());
 
+
+        StringBuilder formula = new StringBuilder();
+        cornerEval.getParagraphs().stream()
+                .filter(f -> !f.toString().isBlank())
+                .forEach(charSequence -> formula.append(charSequence.toString()));
+
         if (!textHeight.isBlank()) {
             Double height = Double.parseDouble(textHeight);
             CupBoard cupBoard = new CupBoard(height, shelvesDist, supportedHorisont);
             BoxImageBuilder boxImageBuilder = new BoxImageBuilder(height, supportedHorisont);
             boxImageBuilder.drawShelves(cupBoard);
-            boxImageBuilder.drawCorners(cornerEval.getCharacters().toString(), cupBoard);
+            boxImageBuilder.drawCorners(formula.toString(), cupBoard);
         }
         else {
             BoxImageBuilder.clearShelves();

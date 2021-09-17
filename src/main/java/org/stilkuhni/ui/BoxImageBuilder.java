@@ -1,9 +1,12 @@
 package org.stilkuhni.ui;
 
 import com.fathzer.soft.javaluator.DoubleEvaluator;
+import javafx.geometry.VPos;
 import javafx.scene.Group;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import org.stilkuhni.Constants;
 import org.stilkuhni.model.cupboards.CupBoard;
 import org.stilkuhni.ui.corners.CornerImage;
@@ -138,6 +141,29 @@ public class BoxImageBuilder {
 
         leftCorner.draw();
         rightCorner.draw();
+
+        String textValue;
+        if (cornerDimention % 1 == 0) {
+            textValue = String.format("%.0f", cornerDimention);
+        }
+        else {
+            textValue = String.format("%.1f", cornerDimention);
+        }
+
+        Text cornerText = new Text(leftX, y, textValue);
+        cornerText.setWrappingWidth(rightX - leftX);
+        cornerText.setTextAlignment(TextAlignment.CENTER);
+        cornerText.setTextOrigin(VPos.BOTTOM);
+        cornerText.setFont(Font.font(Constants.TEXT_HEIGHT));
+        if (Constants.TEXT_BOLD) {
+            cornerText.setStyle("-fx-font-weight: bold");
+        }
+        else {
+            cornerText.setStyle("-fx-font-weight: regular");
+        }
+
+        ShelfImageBuilder.addElementToImage(cornerText);
+        
     }
 
 }

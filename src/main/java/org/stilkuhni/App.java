@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.stilkuhni.ui.BoxImageBuilder;
-import org.stilkuhni.ui.Controller;
 
 public class App extends Application {
 
