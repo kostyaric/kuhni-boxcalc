@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.stilkuhni.controls.ControlsActions;
 import org.stilkuhni.model.cupboards.CupBoard;
 import org.stilkuhni.ui.finders.ElementsFinder;
 
@@ -44,6 +45,7 @@ public class Controller implements Initializable {
         clearButton.setOnAction(actionEvent -> {
             BoxImageBuilder.clearShelves();
             BoxImageBuilder.clearTitle();
+            ControlsActions.clearControls();
         });
 
         horisontCheckBox.setOnAction(actionEvent -> {

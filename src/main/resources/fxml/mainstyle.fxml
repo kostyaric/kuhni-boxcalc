@@ -42,7 +42,7 @@
                </center>
             </BorderPane>
          </children></AnchorPane>
-    <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="200.0" minWidth="-Infinity">
+    <AnchorPane fx:id="controls" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="200.0" minWidth="-Infinity">
          <children>
             <VBox alignment="TOP_RIGHT" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>

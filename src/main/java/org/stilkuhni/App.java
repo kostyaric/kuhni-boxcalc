@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.stilkuhni.controls.ControlsActions;
 import org.stilkuhni.ui.BoxImageBuilder;
 
 public class App extends Application {
@@ -29,6 +31,8 @@ public class App extends Application {
         BoxImageBuilder.imageGroup = (Group) scene.lookup("#imageGroup");
         BoxImageBuilder.clearTitle();
         BoxImageBuilder.rebuildBoxBody(false);
+
+        ControlsActions.controlsPanel = (AnchorPane) scene.lookup("#controls");
 
         /*Если привязывать контроллер программно, а не через fxml
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainstyle.fxml"));
