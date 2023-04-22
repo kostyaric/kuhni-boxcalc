@@ -4,7 +4,7 @@ public class Constants {
     public static final String TITLE = "Расчет расстояния между полками";
 
     public static final int PANEL_WIDTH = 20;
-    public static final double PANEL_WIDTH_MM = 18;
+    public static double PANEL_WIDTH_MM = 18;
     public static final int BASE_LINE_WIDTH = 4;
     public static final double MINIMUM_DIST_BETWEEN_SHELVES = 60;
     public static final double UNCHANGEABLE_DIST_BETWEEN_SHELVES = 80;

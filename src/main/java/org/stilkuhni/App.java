@@ -33,6 +33,7 @@ public class App extends Application {
         BoxImageBuilder.rebuildBoxBody(false);
 
         ControlsActions.controlsPanel = (AnchorPane) scene.lookup("#controls");
+        ControlsActions.setDefaultDspWidth();
 
         /*Если привязывать контроллер программно, а не через fxml
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mainstyle.fxml"));

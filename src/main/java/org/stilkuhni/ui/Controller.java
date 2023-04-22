@@ -3,10 +3,8 @@ package org.stilkuhni.ui;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import org.stilkuhni.Constants;
 import org.stilkuhni.controls.ControlsActions;
 import org.stilkuhni.model.cupboards.CupBoard;
 import org.stilkuhni.ui.finders.ElementsFinder;
@@ -33,6 +31,10 @@ public class Controller implements Initializable {
     private TextArea cornerEval;
     @FXML
     private TextArea distanceBetweenShelves;
+    @FXML
+    private RadioButton dspw16;
+    @FXML
+    private RadioButton dspw18;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -50,12 +52,25 @@ public class Controller implements Initializable {
 
         horisontCheckBox.setOnAction(actionEvent -> {
             BoxImageBuilder.setBottomHorisontType(horisontCheckBox.isSelected());
-            Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
-            if (shelvesGroup.getChildren().size() > 0) {
-                buildShelves();
-            }
+            rebuildShelves();
         });
 
+        dspw16.setOnAction(event -> {
+            Constants.PANEL_WIDTH_MM = 16;
+            rebuildShelves();
+        });
+
+        dspw18.setOnAction(event -> {
+            Constants.PANEL_WIDTH_MM = 18;
+            rebuildShelves();
+        });
+    }
+
+    private void rebuildShelves() {
+        Group shelvesGroup = ElementsFinder.<Group>findElementByID("shelvesGroup");
+        if (shelvesGroup.getChildren().size() > 0) {
+            buildShelves();
+        }
     }
 
     private void buildShelves() {

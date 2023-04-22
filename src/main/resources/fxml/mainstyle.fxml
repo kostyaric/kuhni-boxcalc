@@ -59,6 +59,24 @@
                         <TextField fx:id="boxHeight" prefWidth="50.0" />
                      </children>
                   </HBox>
+                  <HBox alignment="TOP_CENTER" spacing="13.0">
+                     <children>
+                           <Label text="Толщина ДСП:" />
+                        <VBox alignment="CENTER" spacing="10.0">
+                           <children>
+                                 <RadioButton fx:id="dspw18" mnemonicParsing="false" text="18 мм">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="dspw" />
+                                 </toggleGroup>
+                              </RadioButton>
+                                 <RadioButton fx:id="dspw16" mnemonicParsing="false" text="16 мм" toggleGroup="$dspw" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
                   <TextArea fx:id="distanceBetweenShelves" maxHeight="300.0" maxWidth="-Infinity" minHeight="100.0" minWidth="-Infinity" prefHeight="200.0" prefWidth="150.0" promptText="Расстояния до полок от верха через пробел или Enter" VBox.vgrow="ALWAYS" />
                   <TextArea fx:id="cornerEval" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="150.0" promptText="Расчет уголков" wrapText="true" />
                   <HBox alignment="CENTER_RIGHT" spacing="5.0">
